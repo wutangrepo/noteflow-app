@@ -35,4 +35,4 @@ NoteFlow is designed to help distributed student teams stay aligned through a si
 
 1. **Clone the repository**
    ```bash
-   git clone https://github. com/your-org/noteflow.git
+   git clone https://github.com/wutangrepo/noteflow-app.git
