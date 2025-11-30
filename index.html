@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteFlow - Team Standup</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a clean look  -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- CRITERIA 1: Header with Logo -->
+    <header class="main-header">
+        <div class="logo">
+            <span class="icon">📝</span> NoteFlow
+        </div>
+        <div class="user-status">v1.0 MVP</div>
+    </header>
+
+    <main class="container">
+        <!-- CRITERIA 2: Input Area Styled -->
+        <section class="input-section">
+            <h2>Daily Standup</h2>
+            
+            <div class="input-card">
+                <!-- This is for Epic 5 later (Name), but we build the layout now -->
+                <input type="text" id="nameInput" placeholder="Your Name (e.g. Alex)" class="input-field">
+                
+                <!-- This is the main note text -->
+                <textarea id="noteInput" placeholder="What did you work on today?" rows="3" class="input-field"></textarea>
+                
+                <button id="addBtn" class="primary-btn">Post Note +</button>
+            </div>
+        </section>
+
+        <!-- CRITERIA 3: Responsive Layout (Notes will appear here) -->
+        <section class="notes-grid" id="notesContainer">
+            <!-- We add a fake note just so you can see the layout for now -->
+            <div class="note-card">
+                <div class="note-header">
+                    <span class="author">Admin</span>
+                    <button class="delete-btn">&times;</button>
+                </div>
+                <p class="note-text">Welcome to NoteFlow! This is a sample note to test the responsive layout.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link to JS (We will build this in Epic 3) -->
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+
