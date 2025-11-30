@@ -113,3 +113,14 @@ body {
 
 }
 
+/* CRITERIA: Author name displayed in bold */
+.author {
+    color: var(--primary-color); /* Matches the brand color (Indigo) */
+    font-weight: 800;            /* Make it Extra Bold */
+    text-transform: uppercase;   /* Make it look like a tag */
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    background-color: #e0e7ff;   /* Light indigo background */
+    padding: 4px 8px;
+    border-radius: 4px;
+}
