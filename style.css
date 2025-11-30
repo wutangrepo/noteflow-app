@@ -1,0 +1,115 @@
+/* GLOBAL VARIABLES */
+:root {
+    --primary-color: #6366f1; /* Modern Indigo */
+    --bg-color: #f3f4f6;      /* Light Gray */
+    --card-bg: #ffffff;
+    --text-color: #1f2937;
+}
+
+/* GENERAL SETUP */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* CRITERIA 1: HEADER STYLING */
+.main-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* CRITERIA 2: INPUT AREA STYLING */
+.input-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+.input-field {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.input-field:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: transparent;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #4f46e5;
+}
+
+/* CRITERIA 3: RESPONSIVE GRID */
+.notes-grid {
+    display: grid;
+    /* This Magic Line makes it responsive automatically */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* NOTE CARD LOOK */
+.note-card {
+    background: #fff; /* Post-it yellow look: #fef3c7 */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color);
+    position: relative;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1.2rem;
+
+}
+
