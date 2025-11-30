@@ -1,7 +1,7 @@
 /* GLOBAL VARIABLES */
 :root {
     --primary-color: #6366f1; /* Modern Indigo */
-    --bg-color: #f3f4f6;      /* Light Gray */
+    --bg-color: #f3f4f6;      /* Light Gray*/
     --card-bg: #ffffff;
     --text-color: #1f2937;
 }
@@ -110,4 +110,5 @@ body {
     color: #ef4444;
     cursor: pointer;
     font-size: 1.2rem;
+
 }
