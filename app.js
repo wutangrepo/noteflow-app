@@ -75,7 +75,7 @@ notesContainer.addEventListener('click', function(e) {
         saveToStorage();
         renderNotes();
     }
-});
+}); // revised js file for LocalStorage and Delete functionality
 
 // CRITERIA 1: Helper function to save to LocalStorage
 function saveToStorage() {
