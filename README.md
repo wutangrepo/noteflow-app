@@ -66,11 +66,11 @@ We operate as a cross-functional Scrum team where every member contributes to th
 
 *   **Wu:** **Tech Lead & Core Logic**
 
-*   **Youssef:** **Frontend Specialist**
+*   ***Badr:** **Frontend Specialist**
 
 *   **Obarijima:** **Feature Developer**
 
-*   **Badr:** **Feature Develope**
+*   **Youssef:** **Feature Develope**
 
 ---
 *Developed for Team project of IT system - Fall 2025*
