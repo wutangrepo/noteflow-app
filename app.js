@@ -1,11 +1,12 @@
 // SELECT DOM ELEMENTS
 const noteInput = document.getElementById('noteInput');
 const nameInput = document.getElementById('nameInput');
+const categoryInput = document.getElementById('categoryInput'); // NEW
 const addBtn = document.getElementById('addBtn');
 const notesContainer = document.getElementById('notesContainer');
 
 // STATE MANAGEMENT
-// CRITERIA 1: Load data from LocalStorage on startup
+// Load data from LocalStorage on startup
 let notes = JSON.parse(localStorage.getItem('noteflow-notes')) || [];
 
 // INITIAL RENDER
@@ -19,16 +20,22 @@ function renderNotes() {
     // Loop through array and create HTML
     notes.forEach((note, index) => {
         const noteHTML = `
-            <div class="note-card">
+            <!-- We inject the category class here (progress/done/blocker) -->
+            <div class="note-card ${note.category}">
                 <div class="note-header">
-                    <span class="author">${note.author}</span>
-                    <!-- CRITERIA 2: Delete icon removes note -->
-                    <!-- We give the button a data-index so we know WHICH note to delete -->
+                    <div>
+                        <span class="author">${note.author}</span>
+                        <div style="margin-top:5px;">
+                            <span class="category-badge">${note.category}</span>
+                        </div>
+                    </div>
+                    <!-- Delete Button -->
                     <button class="delete-btn" data-index="${index}">&times;</button>
                 </div>
                 <p class="note-text">${note.text}</p>
             </div>
         `;
+        // Insert at the bottom of the list
         notesContainer.insertAdjacentHTML('beforeend', noteHTML);
     });
 }
@@ -37,6 +44,7 @@ function renderNotes() {
 addBtn.addEventListener('click', function() {
     const noteText = noteInput.value.trim();
     const authorName = nameInput.value.trim() || 'Anonymous';
+    const categoryValue = categoryInput.value; // NEW: Get dropdown value
 
     if (noteText === "") {
         alert("Please write a note!");
@@ -47,11 +55,12 @@ addBtn.addEventListener('click', function() {
     const newNote = {
         text: noteText,
         author: authorName,
-        timestamp: Date.now() // Optional: good for tracking
+        category: categoryValue, // Save category
+        timestamp: Date.now()
     };
 
-    // Add to Array (State)
-    notes.unshift(newNote); // unshift adds to the TOP of the array
+    // Add to Array (Add to top of list: unshift)
+    notes.unshift(newNote);
 
     // Save & Render
     saveToStorage();
@@ -59,11 +68,11 @@ addBtn.addEventListener('click', function() {
 
     // Reset Input
     noteInput.value = "";
+    // Note: We intentionally don't reset name or category so user can post multiple times fast
     noteInput.focus();
 });
 
-// CRITERIA 2: Delete Logic (Event Delegation)
-// We listen for clicks on the whole container, then check if it was a delete button
+// DELETE Logic (Event Delegation)
 notesContainer.addEventListener('click', function(e) {
     if (e.target.classList.contains('delete-btn')) {
         const indexToDelete = e.target.getAttribute('data-index');
@@ -77,7 +86,7 @@ notesContainer.addEventListener('click', function(e) {
     }
 });
 
-// CRITERIA 1: Helper function to save to LocalStorage
+// Helper function to save to LocalStorage
 function saveToStorage() {
     localStorage.setItem('noteflow-notes', JSON.stringify(notes));
 }
