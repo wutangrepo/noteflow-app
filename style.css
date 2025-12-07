@@ -1,6 +1,6 @@
 /* GLOBAL VARIABLES */
 :root {
-    --primary-color: #6366f1; /* Modern Indigo */
+    --primary-color: #6366f1; /* Indigo */
     --bg-color: #f3f4f6;      /* Light Gray */
     --card-bg: #ffffff;
     --text-color: #1f2937;
@@ -14,7 +14,7 @@ body {
     color: var(--text-color);
 }
 
-/* CRITERIA 1: HEADER STYLING */
+/* HEADER */
 .main-header {
     background-color: #ffffff;
     padding: 1rem 2rem;
@@ -37,7 +37,7 @@ body {
     padding: 2rem;
 }
 
-/* CRITERIA 2: INPUT AREA STYLING */
+/* INPUT AREA */
 .input-card {
     background: var(--card-bg);
     padding: 1.5rem;
@@ -45,7 +45,7 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 2rem;
 }
 
@@ -77,50 +77,89 @@ body {
     background-color: #4f46e5;
 }
 
-/* CRITERIA 3: RESPONSIVE GRID */
+/* RESPONSIVE GRID */
 .notes-grid {
     display: grid;
-    /* This Magic Line makes it responsive automatically */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
 /* NOTE CARD LOOK */
 .note-card {
-    background: #fff; /* Post-it yellow look: #fef3c7 */
+    background: #fff;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    border-left: 5px solid var(--primary-color);
+    border-left: 5px solid #ccc; /* Default border */
     position: relative;
 }
 
 .note-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #6b7280;
-    font-size: 0.85rem;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+
+.note-text {
+    margin: 0;
+    line-height: 1.5;
 }
 
 .delete-btn {
     background: none;
     border: none;
-    color: #ef4444;
+    color: #9ca3af;
     cursor: pointer;
     font-size: 1.2rem;
-
+    line-height: 0.5;
 }
 
-/* CRITERIA: Author name displayed in bold */
+.delete-btn:hover {
+    color: #ef4444;
+}
+
+/* AUTHOR TAG STYLE (Epic 5) */
 .author {
-    color: var(--primary-color); /* Matches the brand color (Indigo) */
-    font-weight: 800;            /* Make it Extra Bold */
-    text-transform: uppercase;   /* Make it look like a tag */
+    color: var(--primary-color);
+    font-weight: 800;
+    text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 1px;
-    background-color: #e0e7ff;   /* Light indigo background */
+    background-color: #e0e7ff;
     padding: 4px 8px;
     border-radius: 4px;
+}
+
+/* --- NEW FEATURE: CATEGORY STYLES --- */
+
+/* Blue for Progress */
+.note-card.progress {
+    border-left: 5px solid #3b82f6;
+}
+
+/* Green for Done */
+.note-card.done {
+    border-left: 5px solid #10b981;
+    background-color: #f0fdf4;
+}
+
+/* Red for Blocker */
+.note-card.blocker {
+    border-left: 5px solid #ef4444;
+    background-color: #fef2f2;
+}
+
+/* Category Badge */
+.category-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #555;
+    background: #eee;
+    margin-right: 5px;
 }
